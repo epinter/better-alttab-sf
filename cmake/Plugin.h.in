@@ -1,0 +1,28 @@
+#pragma once
+
+#include <string_view>
+
+namespace Plugin
+{
+    using namespace std::string_view_literals;
+
+    static constexpr auto Name{ "@PROJECT_NAME@"sv };
+    static constexpr auto Author{ "@PROJECT_AUTHOR@"sv };
+    static constexpr auto Version{
+        REL::Version{@PROJECT_VERSION_MAJOR@u, @PROJECT_VERSION_MINOR@u, @PROJECT_VERSION_PATCH@u, 0}
+    };
+}
+
+
+DLLEXPORT constinit auto SFSEPlugin_Version = []() noexcept {
+    SFSE::PluginVersionData data{};
+
+    data.PluginVersion(Plugin::Version);
+    data.PluginName(Plugin::Name);
+    data.AuthorName(Plugin::Author);
+    data.UsesAddressLibrary(true);
+    data.IsLayoutDependent(true);
+    data.CompatibleVersions({ SFSE::RUNTIME_LATEST });
+
+    return data;
+}();
