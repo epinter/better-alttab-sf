@@ -5,7 +5,7 @@
 /*
 Copyright (c) 2024 Emerson Pinter
 
-This file is part of Better AltTab for Skyrim <https://github.com/epinter/better-alttab-sf>.
+This file is part of Better AltTab for Starfield <https://github.com/epinter/better-alttab-sf>.
 Licensed under LGPL-3.0 <https://www.gnu.org/licenses/lgpl-3.0.txt>.
 */
 
