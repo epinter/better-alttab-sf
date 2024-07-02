@@ -12,26 +12,26 @@ namespace betteralttab {
     private:
         static constexpr int OFFSET_FUNC_HWND = 202998;
         HWND hwnd = 0;
+        bool started = false;
+        static inline int cursorFlag = -1;
 
         static LRESULT CALLBACK windowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
         static inline LONG_PTR original;
-
         static void funcHwnd(uint64_t param1);
         static inline REL::Relocation<decltype(funcHwnd)> origFuncHwnd;
-        static inline int cursorFlag = -1;
-        bool started = false;
 
-    public:
-        [[nodiscard]] static WindowProc& getInstance();
         void setHwnd(HWND h);
         CURSORINFO getCursorInfo();
         bool installHookWndProc();
-        bool installHookHwnd();
         void hideCursor();
         bool showCursor();
-        void setStarted(bool b);
         int setCursorState(bool state);
         bool isCursorVisible();
         bool isCursorOverWindow();
+
+    public:
+        [[nodiscard]] static WindowProc& getInstance();
+        bool installHookHwnd();
+        void setStarted(bool b);
     };
 }  // namespace betteralttab
