@@ -17,7 +17,11 @@ namespace betteralttab {
             spdlog::flush_on(spdlog::level::debug);
             spdlog::set_pattern(PLUGIN_LOGPATTERN_DEBUG);
         }
+        WindowProc::getInstance().installHookHwnd();
+    }
 
-        WindowProc::installHook();
+    void GameEventHandler::onPostDataLoaded() {
+        logger::debug("onPostDataLoaded: setting started flag");
+        WindowProc::getInstance().setStarted(true);
     }
 }  // namespace betteralttab

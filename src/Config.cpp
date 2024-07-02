@@ -37,12 +37,4 @@ namespace betteralttab {
     bool Config::isDebugEnabled() {
         return debugEnabled;
     }
-
-    bool Config::isCursorEnabled() {
-        return cursorEnabled;
-    }
-
-    void Config::setCursorEnabled(bool b) {
-        cursorEnabled = b;
-    }
 }  // namespace betteralttab

@@ -15,6 +15,7 @@ namespace betteralttab {
         }
 
         void onLoad() override;
+        void onPostDataLoaded() override;
     };
 
 }  // namespace betteralttab
